@@ -9,8 +9,10 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
     - aarush0101
+    - itschinnu0
   assignees:
     - aarush0101
+    - itschinnu0
   commit-message:
     prefix: fix
     prefix-development: chore
@@ -24,8 +26,10 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
     - aarush0101
+    - itschinnu0
   assignees:
     - aarush0101
+    - itschinnu0
   commit-message:
     prefix: fix
     prefix-development: chore
