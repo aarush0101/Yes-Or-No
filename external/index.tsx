@@ -29,7 +29,7 @@ export default function Home() {
           <img src="/gfx/svg.png" alt="" className={styles.svg} />
           <h1 className={styles.header_mond}>Yes-No</h1>
         </div>
-        {/* <div className={`${styles.name} ${styles.hide}`}>
+        <div className={`${styles.name} ${styles.hide}`}>
           <form className={styles.main_form}>
             <span>
               <h3 className={styles.header_main}>Enter your name:</h3>
@@ -43,8 +43,7 @@ export default function Home() {
             </label>
             <button className={styles.contin_btn}>Continue</button>
           </form>
-        </div> */}
-        <Continue />
+        </div>
       </div>
       <div className={`${styles.notify} ${styles.hide}`}>
         <div className={styles.notibox}>
