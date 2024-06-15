@@ -1,32 +1,15 @@
 import Head from "next/head";
 import styles from "../public/styles/home.module.css";
 import Script from "next/script";
+import Continue from '../components/continue';
 import { useEffect } from "react";
-import { setupElements, init } from "../public/js/script";
 
 export default function Home() {
-  useEffect(() => {
-    const box = document.querySelector(".namer");
-    const box2 = document.querySelector(".container");
-    const final = document.querySelector(".accepted");
-    const continueBtn = document.querySelector(".contin_btn");
-    const yesBtn = document.querySelector(".yes_btn");
-    const noBtn = document.querySelector(".no_btn");
-    const notify = document.querySelector(".notify");
-
-    setupElements({
-      box,
-      box2,
-      final,
-      continueBtn,
-      yesBtn,
-      noBtn,
-      notify,
-    });
-
-
-  }, []);
-
+  useEffect => {
+    const namer = document.querySelector(`${styles.namer}`)
+     namer?.classList.remove("hide")
+     namer?.classList.add("show")
+  };
   return (
     <>
       <Head>
@@ -37,9 +20,7 @@ export default function Home() {
       </Head>
       <Script
         src="js/script.js"
-        strategy="afterInteractive"
         onLoad={() => {
-          init();
           console.log("Script loaded and executed");
         }}
       ></Script>
@@ -48,7 +29,7 @@ export default function Home() {
           <img src="/gfx/svg.png" alt="" className={styles.svg} />
           <h1 className={styles.header_mond}>Yes-No</h1>
         </div>
-        <div className={`${styles.name} ${styles.hide}`}>
+        {/* <div className={`${styles.name} ${styles.hide}`}>
           <form className={styles.main_form}>
             <span>
               <h3 className={styles.header_main}>Enter your name:</h3>
@@ -62,7 +43,8 @@ export default function Home() {
             </label>
             <button className={styles.contin_btn}>Continue</button>
           </form>
-        </div>
+        </div> */}
+        <Continue />
       </div>
       <div className={`${styles.notify} ${styles.hide}`}>
         <div className={styles.notibox}>
