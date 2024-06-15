@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  padding: 5px;
+  animation: fadeInFromTop 1s ease-in-out;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #4070f4;
+  background-size: cover;
+  background-blend-mode: darken;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: none;
+  }
+}

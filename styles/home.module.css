@@ -1,0 +1,242 @@
+.container {
+  position: fixed;
+  right: -4000px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto;
+  background-color: #50c878;
+}
+
+.accepted {
+  position: fixed;
+  right: -4000px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto;
+  background-color: #50c878;
+}
+
+.accepted.show {
+  justify-content: center;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  align-items: center;
+}
+
+.notify {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  right: 2%;
+  top: 2%;
+  position: fixed;
+  background: rgb(64, 112, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(64, 112, 244, 1) 0%,
+    rgba(255, 228, 225, 1) 0%,
+    rgba(200, 80, 94, 1) 49%,
+    rgba(190, 20, 217, 1) 100%,
+    rgba(0, 255, 189, 0.8795167725293243) 100%
+  );
+  transition: all 1s ease;
+}
+
+.notify.show {
+  justify-content: center;
+  right: 2%;
+  top: 2%;
+  position: fixed;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .notify {
+    right: 2%;
+    top: 2%;
+    width: auto;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notify {
+    right: 1%;
+    top: 1%;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+}
+
+.footer {
+  position: fixed;
+  right: 20px;
+  padding: 10px;
+  top: 85%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto;
+  background-color: #50c878;
+  text-decoration: none;
+}
+
+.fop {
+  text-decoration: none;
+  border-radius: 10px;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.header_main {
+  padding: 5px;
+}
+
+.main_form {
+  padding: 5px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #50c878;
+  margin: auto;
+}
+
+.name_in {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+.contin_btn {
+  border-radius: 10px;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+
+.container.show {
+  justify-content: center;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  align-items: center;
+}
+
+.namer {
+  position: fixed;
+  right: -4000px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto;
+  background-color: #50c878;
+}
+
+.hide {
+  right: -4000px;
+}
+
+.namer.show {
+  justify-content: center;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.svg {
+  height: 100px;
+  width: 90px;
+  transition: transform 1s ease-in-out;
+  transform: translateY(-5px);
+  margin-right: 10px;
+}
+
+.header_mond {
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 20px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.yes_btn {
+  padding: 5px;
+  background-color: #f0e68c;
+  border-radius: 20px;
+  margin: 10px 0 10px 0;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.no_btn {
+  padding: 5px;
+  background-color: red;
+  color: black;
+  margin: 10px 0;
+  border-radius: 20px;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.yes_btn:hover {
+  text-decoration: none;
+  background-color: #4070f4;
+  transform: translateY(-5px);
+  transition: all 0.5s ease-in-out;
+}
+
+.no_btn:hover {
+  text-decoration: none;
+  background-color: #ff7f7f;
+  transform: translateY(-5px);
+  transition: all 0.5s ease-in-out;
+}
