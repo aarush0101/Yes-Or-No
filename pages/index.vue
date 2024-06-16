@@ -1,9 +1,5 @@
+<!-- pages/index.vue -->
 <template>
-  <Tutorial />
+  <HomePage />
 </template>
 
-<script>
-export default {
-  name: "IndexPage",
-};
-</script>

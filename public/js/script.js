@@ -1,3 +1,4 @@
+// Query all the elements
 const box = document.querySelector(".namer");
 const box2 = document.querySelector(".container");
 const final = document.querySelector(".accepted");
@@ -5,6 +6,13 @@ const continueBtn = document.querySelector(".contin_btn");
 const yesBtn = document.querySelector(".yes_btn");
 const noBtn = document.querySelector(".no_btn");
 const notify = document.querySelector(".notify");
+const notify2 = document.querySelector(".notify2");
+
+// Handle initial client-side operations
+window.onload = () => {
+  box.classList.remove("hide");
+  box.classList.add("show");
+};
 
 function setCookie(name, value, days) {
   let expires = "";
@@ -16,6 +24,7 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
+// Get the value of a cookie by name
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -27,8 +36,14 @@ function getCookie(name) {
   return null;
 }
 
+// Function to introduce a delay
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Send webhook data to server-side file
 async function sendWebhook(name, value) {
-  let webhookUrl = "/api/send-webhook";
+  let webhookUrl = "/js/send.js";
 
   try {
     const response = await fetch(webhookUrl, {
@@ -46,24 +61,34 @@ async function sendWebhook(name, value) {
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    console.log(
-      "Unable to make a request to the server side files, error -> ",
-      error
-    );
+    console.error("Error sending webhook:", error);
   }
 }
 
-function sleep(ms) {
-  return new 
-}
-
-continueBtn.addEventListener("click", async (event) => {
-
-});
-
+// Delete the cookie
 function deleteCookie(name) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
+
+// Event listeners for buttons in the entire page
+continueBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const submittedName = document.querySelector(".name_in").value.trim();
+  if (submittedName) {
+    setCookie("name", submittedName, 1);
+    box.classList.remove("show");
+    box.classList.add("hide");
+    box2.classList.remove("hide");
+    box2.classList.add("show");
+    
+  } else {
+    notify2.classList.remove("hide");
+    notify2.classList.add("show");
+    await sleep(5000);
+    notify2.classList.remove("show");
+    notify2.classList.add("hide");
+  }
+});
 
 yesBtn.addEventListener("click", async () => {
   const name = getCookie("name");
@@ -74,6 +99,12 @@ yesBtn.addEventListener("click", async () => {
     final.classList.add("show");
     deleteCookie("name");
     await sendWebhook(name, "yes");
+  } else {
+    notify2.classList.remove("hide");
+    notify2.classList.add("show");
+    await sleep(5000);
+    notify2.classList.remove("show");
+    notify2.classList.add("hide");
   }
 });
 

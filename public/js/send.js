@@ -1,3 +1,4 @@
+
 const process = require("process");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
@@ -19,4 +20,5 @@ export default async function handler(req, res) {
   };
 
   request.send(JSON.stringify(params));
+  res.status(200).json({ message: "Webhook sent successfully" });
 }

@@ -1077,7 +1077,7 @@ const unheadPlugins = true ? [CapoPlugin({ track: true })] : [];
 
 const renderSSRHeadOptions = {};
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1.0"},{"charset":"UTF-8"}],"link":[{"rel":"stylesheet","href":"/styles/home.module.css"},{"rel":"shortcut icon","type":"image/x-icon","href":"/images/Caution.png"}],"style":[],"script":[{"src":"/js/script.js","defer":true}],"noscript":[]};
 
 const appRootTag = "div";
 
