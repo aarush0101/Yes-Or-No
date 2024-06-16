@@ -1,0 +1,30 @@
+{
+  "D:\\main\\Yes-Or-No\\components\\Tutorial.vue": {
+    "path": "D:\\main\\Yes-Or-No\\components\\Tutorial.vue",
+    "statementMap": {
+      "0": {
+        "start": { "line": 47, "column": 0 },
+        "end": { "line": 51, "column": null }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": { "0": 0 },
+    "f": {},
+    "b": {}
+  },
+  "D:\\main\\Yes-Or-No\\pages\\index.vue": {
+    "path": "D:\\main\\Yes-Or-No\\pages\\index.vue",
+    "statementMap": {
+      "0": {
+        "start": { "line": 4, "column": 0 },
+        "end": { "line": 8, "column": null }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": { "0": 0 },
+    "f": {},
+    "b": {}
+  }
+}

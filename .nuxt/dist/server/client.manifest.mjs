@@ -1,0 +1,1 @@
+export { default } from "file:///D:/main/Yes-Or-No/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
