@@ -554,7 +554,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import("./_nuxt/index-BSEbi9r5.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-DwHfNBZI.js").then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
