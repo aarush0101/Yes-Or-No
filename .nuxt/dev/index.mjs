@@ -3,7 +3,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/main/Yes-Or-No/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send as send$2, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/main/Yes-Or-No/node_modules/h3/dist/index.mjs';
+import fetch from 'file://D:/main/Yes-Or-No/node_modules/unenv/runtime/npm/node-fetch.mjs';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/main/Yes-Or-No/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file://D:/main/Yes-Or-No/node_modules/devalue/index.js';
 import destr from 'file://D:/main/Yes-Or-No/node_modules/destr/dist/index.mjs';
@@ -734,7 +735,7 @@ function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
     if (event.path.endsWith("/favicon.ico")) {
       setResponseHeader(event, "Content-Type", "image/x-icon");
-      return send(
+      return send$2(
         event,
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       );
@@ -743,7 +744,7 @@ function defineRenderHandler(handler) {
     if (!response) {
       const _currentStatus = getResponseStatus(event);
       setResponseStatus(event, _currentStatus === 200 ? 500 : _currentStatus);
-      return send(
+      return send$2(
         event,
         "No response returned from render handler: " + event.path
       );
@@ -787,7 +788,7 @@ const errorHandler = (async function errorhandler(error, event) {
   setResponseStatus(event, errorObject.statusCode !== 200 && errorObject.statusCode || 500, errorObject.statusMessage);
   if (isJsonRequest(event)) {
     setResponseHeader(event, "Content-Type", "application/json");
-    return send(event, JSON.stringify(errorObject));
+    return send$2(event, JSON.stringify(errorObject));
   }
   const reqHeaders = getRequestHeaders(event);
   const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
@@ -807,7 +808,7 @@ const errorHandler = (async function errorhandler(error, event) {
       return;
     }
     setResponseHeader(event, "Content-Type", "text/html;charset=UTF-8");
-    return send(event, template(errorObject));
+    return send$2(event, template(errorObject));
   }
   const html = await res.text();
   if (event.handled) {
@@ -817,12 +818,14 @@ const errorHandler = (async function errorhandler(error, event) {
     setResponseHeader(event, header, value);
   }
   setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
-  return send(event, html);
+  return send$2(event, html);
 });
 
+const _lazy_CQoCbk = () => Promise.resolve().then(function () { return send$1; });
 const _lazy_dpMsTM = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/send', handler: _lazy_CQoCbk, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_dpMsTM, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_dpMsTM, lazy: true, middleware: false, method: undefined }
 ];
@@ -1019,6 +1022,57 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
+const send = eventHandler(async (req) => {
+  if (req.method !== "POST") {
+    return {
+      statusCode: 405,
+      body: { error: "Method Not Allowed" }
+    };
+  }
+  try {
+    const body = await readBody(req);
+    const { name, value } = body;
+    const params = {
+      username: "Are you a fool.com",
+      avatar_url: "",
+      content: "New!",
+      embeds: [
+        {
+          title: "New Click",
+          color: 15258703,
+          description: `Name: ${name}
+Option: ${value}`
+        }
+      ]
+    };
+    const response = await fetch(process.env.WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(params)
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return {
+      statusCode: 200,
+      body: { message: "Webhook sent successfully" }
+    };
+  } catch (error) {
+    console.error("Error sending webhook:", error);
+    return {
+      statusCode: 500,
+      body: { error: "Internal Server Error" }
+    };
+  }
+});
+
+const send$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: send
+});
+
 const Vue3 = version.startsWith("3");
 
 function resolveUnref(r) {
@@ -1077,7 +1131,7 @@ const unheadPlugins = true ? [CapoPlugin({ track: true })] : [];
 
 const renderSSRHeadOptions = {};
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1.0"},{"charset":"UTF-8"}],"link":[{"rel":"stylesheet","href":"/styles/home.module.css"},{"rel":"shortcut icon","type":"image/x-icon","href":"/images/Caution.png"}],"style":[],"script":[{"src":"/js/script.js","defer":true}],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1.0"},{"charset":"UTF-8"}],"link":[{"rel":"stylesheet","href":"/styles/home.module.css"},{"rel":"shortcut icon","type":"image/x-icon","href":"/images/Caution.png"}],"style":[],"script":[{"src":"/js/script.js","defer":true}],"noscript":[],"title":"Yes-No"};
 
 const appRootTag = "div";
 

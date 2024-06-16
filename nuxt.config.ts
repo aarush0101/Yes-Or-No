@@ -3,13 +3,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
+      title: "Yes-No",
       meta: [
         {
           name: "viewport",
-          content: "width=device-width, initial-scale=1.0",
+          content: "width=device-width, initial-scale=1.0"
         },
         {
-          charset: "UTF-8",
+          charset: "UTF-8"
         },
       ],
       link: [
@@ -28,7 +29,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-  plugins: [
-    '@/plugins/vue-content-placeholders.js'
-  ]
 });
