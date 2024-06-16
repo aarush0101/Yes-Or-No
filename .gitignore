@@ -63,6 +63,7 @@ venv2/
 ENV/
 env.bak/
 venv.bak/
+.output
 
 # Pyre type checker
 .pyre/
