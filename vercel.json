@@ -1,0 +1,9 @@
+{
+    "build": {
+      "env": {
+        "NODE_VERSION": "20",
+        "NPM_CONFIG_CACHE": "/vercel/.npm"
+      }
+    }
+  }
+  
