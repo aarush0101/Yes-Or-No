@@ -5,7 +5,6 @@ const final = document.querySelector(".accepted");
 const continueBtn = document.querySelector(".contin_btn");
 const yesBtn = document.querySelector(".yes_btn");
 const noBtn = document.querySelector(".no_btn");
-const notify = document.querySelector(".notify");
 const notify2 = document.querySelector(".notify2");
 
 // Handle initial client-side operations
@@ -108,9 +107,8 @@ yesBtn.addEventListener("click", async () => {
 });
 
 noBtn.addEventListener("click", async () => {
-  notify.classList.remove("hide");
-  notify.classList.add("show");
-  await sleep(5000);
-  notify.classList.remove("show");
-  notify.classList.add("hide");
+  const body = document.querySelector(".blink")
+  body.classList.add('blink2');
+  await sleep(1000);
+  body.classList.remove('blink2');
 });
