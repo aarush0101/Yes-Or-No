@@ -1,12 +1,15 @@
 import { eventHandler, readBody } from "h3";
 import fetch from "node-fetch";
 
-export default eventHandler(async (req) => {
+export default eventHandler(async (req, res) => {
   if (req.method !== "POST") {
-    return {
-      statusCode: 405,
-      body: { error: "Method Not Allowed" },
-    };
+    res.statusCode = 400;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({
+      code: 400,
+      msg: "Your request was invalid",
+    }));
+    return;
   }
 
   try {
