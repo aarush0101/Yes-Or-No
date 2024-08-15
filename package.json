@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.3.0",
     "node-fetch": "^3.3.2",
     "nuxt": "^3.12.2",
     "vue": "^3.4.29",
@@ -19,7 +19,7 @@
     "xmlhttprequest": "^1.8.0"  
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.3.0",
     "node-fetch": "^3.3.2",
     "nuxt": "^3.12.2",
     "vue": "^3.4.29",
