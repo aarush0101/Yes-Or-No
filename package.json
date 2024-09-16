@@ -12,7 +12,7 @@
   "dependencies": {
     "@types/node": "^20.14.2",
     "node-fetch": "^3.3.2",
-    "nuxt": "^3.12.2",
+    "nuxt": "^3.13.2",
     "vue": "^3.4.29",
     "vue-content-placeholders": "^0.2.1",
     "vue-router": "^4.3.3",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/node": "^20.14.2",
     "node-fetch": "^3.3.2",
-    "nuxt": "^3.12.2",
+    "nuxt": "^3.13.2",
     "vue": "^3.4.29",
     "vue-content-placeholders": "^0.2.1",
     "vue-router": "^4.3.3",
